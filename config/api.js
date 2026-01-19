@@ -5,10 +5,10 @@ export const BASE_URL = "https://locallensbackend.onrender.com/api";
 export const registerUser = async (username, email, password) => {
   try {
     const response = await axios.post(`${BASE_URL}/register`, { username, email, password });
-    console.log("Register Response:", response.data);
+    console.log(" Post register response:", response.data);
     return response.data;
   } catch (error) {
-    console.log("Register Error:", error.response?.data || error.message);
+    console.log("Post register error:", error.response?.data || error.message);
     return { success: false, message: error.response?.data?.message || error.message };
   }
 };
@@ -25,10 +25,10 @@ export const getProfile = async (token) => {
     const response = await axios.get(`${BASE_URL}/user/profile`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("Get Profile Response:", response.data);
+    console.log("Get profile response:", response.data);
     return response.data;
   } catch (error) {
-    console.log("Get Profile Error:", error.response?.data || error.message);
+    console.log("Get profile error:", error.response?.data || error.message);
     return { success: false, message: error.response?.data?.message || error.message };
   }
 };
@@ -71,10 +71,10 @@ export const getAllUsers = async (token) => {
     const response = await axios.get(`${BASE_URL}/user`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("Get All Users Response:", response.data);
+    console.log("Get all users response:", response.data);
     return response.data;
   } catch (error) {
-    console.log("Get All Users Error:", error.response?.data || error.message);
+    console.log("Get all users error:", error.response?.data || error.message);
     return { success: false, message: error.response?.data?.message || error.message };
   }
 };
@@ -84,10 +84,10 @@ export const getUserById = async (token, userId) => {
     const response = await axios.get(`${BASE_URL}/user/${userId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("Get User By ID Response:", response.data);
+    console.log("Get user by ID response:", response.data);
     return response.data;
   } catch (error) {
-    console.log("Get User By ID Error:", error.response?.data || error.message);
+    console.log("Get user by ID error:", error.response?.data|| error.message);
     return { success: false, message: error.response?.data?.message || error.message };
   }
 };

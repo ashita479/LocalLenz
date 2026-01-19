@@ -15,7 +15,7 @@ export default function ProfileScreen({ navigation }) {
       <View style={styles.topRow}>
         <Image
           source={
-            user.imageUri ? { uri: user.imageUri } : require("../assets/avatar.jpg")
+            user.imageUri ? { uri: user.imageUri } : require("../assets/defimg.png")
           }
           style={styles.avatar}
         />

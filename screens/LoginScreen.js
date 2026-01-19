@@ -22,10 +22,13 @@ export default function LoginScreen() {
     const result = await loginUser(email, password);
 
     if (result.success) {
-      setToken(result.token); 
+      setToken(result.token);
 
-      const profile = await getProfile(result.token); 
-      if (profile.success) setUser(profile.user);
+      const profile = await getProfile(result.token);
+      if (profile.success) 
+        setUser(profile.user);
+        
+
 
       navigation.replace("MainTabs");
     } else {
@@ -65,8 +68,16 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" },
-  title: { fontSize: 30, marginBottom: 20 },
+  container: { 
+    flex: 1, 
+    justifyContent: "center", 
+    alignItems: "center", 
+    backgroundColor: "#fff" 
+  },
+  title: { 
+    fontSize: 30, 
+    marginBottom: 20 
+  },
   input: {
     width: "80%",
     height: 40,
@@ -84,7 +95,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10,
   },
-  buttonText: { color: "#fff", fontSize: 18 },
-  message: { color: "red", marginBottom: 10 },
-  linkText: { marginTop: 10, color: "blue", textDecorationLine: "underline" },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18
+  },
+  message: {
+    color: "red", 
+    marginBottom: 10
+  },
+  linkText: { 
+    marginTop: 10, 
+    color: "blue", 
+    textDecorationLine: "underline" 
+  },
 });

@@ -7,6 +7,8 @@ import { updateProfile } from "../config/api";
 export default function EditProfileScreen({ navigation }) {
   const { user, setUser, token } = useContext(UserContext);
 
+ 
+
   const [bio, setBio] = useState(user.bio || "");
   const [pronouns, setPronouns] = useState(user.pronouns || "");
   const [imageUri, setImageUri] = useState(user.imageUri);
@@ -53,7 +55,7 @@ export default function EditProfileScreen({ navigation }) {
       <TouchableOpacity onPress={pickImage}>
         <Image
           source={
-            imageUri ? { uri: imageUri } : require("../assets/avatar.jpg")
+            imageUri ? { uri: imageUri } : require("../assets/defimg.png")
           }
           style={styles.avatar}
         />
@@ -87,7 +89,12 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#fff",
   },
-  avatar: { width: 100, height: 100, borderRadius: 50, marginBottom: 20 },
+  avatar: { 
+    width: 100, 
+    height: 100, 
+    borderRadius: 50, 
+    marginBottom: 20 
+  },
   input: {
     width: "80%",
     height: 40,
@@ -105,6 +112,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10,
   },
-  buttonText: { color: "#fff", fontSize: 18 },
-  message: { color: "red", marginBottom: 10 },
+  buttonText: { 
+    color: "#fff", 
+    fontSize: 18 
+  },
+  message: { 
+    color: "red", 
+    marginBottom: 10 
+  },
 });

@@ -11,6 +11,7 @@ import HomeScreen from "./screens/home";
 import FavouriteScreen from "./screens/favourite";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
+import webScreen from "./screens/BotScreen";
 
 import { loginUser, getProfile } from "./config/api"; 
 
@@ -19,11 +20,13 @@ export const UserContext = createContext();
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
+
 export default function App() {
   const [user, setUser] = useState({
     name: "",
     email: "",
-    phone: "",
+    //phone: "",
     pronouns: "",
     bio: "",
     imageUri: null,
@@ -32,7 +35,8 @@ export default function App() {
   const [token, setToken] = useState(""); 
   const [data, setData] = useState([]);
   const [favourites, setFavourites] = useState([]);
-
+   
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -55,6 +59,7 @@ export default function App() {
           if (route.name === "Home") iconName = "home-outline";
           else if (route.name === "Favourites") iconName = "heart-outline";
           else if (route.name === "Profile") iconName = "person-outline";
+          else if (route.name === "webScreen") iconName = "chatbubbles-outline";
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "#9066df",
@@ -79,6 +84,8 @@ export default function App() {
       </Tab.Screen>
 
       <Tab.Screen name="Profile" component={Profile} />
+
+      <Tab.Screen name="ChatBot" component={webScreen}/>
     </Tab.Navigator>
   );
 
