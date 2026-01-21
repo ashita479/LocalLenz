@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const BASE_URL = "https://locallensbackend.onrender.com/api";
+const BASE_URL = process.env.EXPO_PUBLIC_URL_BASE;
+ 
 
 export const registerUser = async (username, email, password) => {
   try {
